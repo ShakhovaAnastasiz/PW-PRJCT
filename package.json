@@ -1,0 +1,25 @@
+{
+  "name": "pw-prjct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-login": "npx playwright test tests/login.spec.ts",
+    "test-all": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShakhovaAnastasiz/PW-PRJCT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShakhovaAnastasiz/PW-PRJCT/issues"
+  },
+  "homepage": "https://github.com/ShakhovaAnastasiz/PW-PRJCT#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.2"
+  }
+}
