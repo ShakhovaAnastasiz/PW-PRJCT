@@ -2,6 +2,7 @@ import { test, expect,} from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
 import { AccountPage } from '../pages/account.page';
 import { HomePage } from '../pages/home.page';
+import { ProductPage } from '../pages/product.page';
 
 test('Login', async ({ page }) => {
   const loginPage = new LoginPage(page); 
@@ -15,17 +16,18 @@ test('Login', async ({ page }) => {
 
 test('Verify unauthorized user can view product details', async ({ page }) => {
   const homePage = new HomePage(page); 
+  const productPage = new ProductPage(page);
   const productName = 'Combination Pliers';
 
   await page.goto('/');
   await homePage.ClickOnProductCard(productName);
 
   await expect (page, 'Incorrect URL').toHaveURL(/\/product\/.+/);
-  await expect(homePage.getTitleLocator(), 'Product name is incorrect').toHaveText(productName);
-  await expect(homePage.getPriceLocator(), 'Product price is incorrect').toHaveText('14.15');
-  await expect(homePage.getAddToCartButtonLocator(), 'Add to cart button is not visible').toBeVisible();
-  await expect(homePage.getAddedToFavoritesLocator(), 'Add to favorites button is not visible').toBeVisible();
-  await expect(homePage.getNavSignInLocator(), 'Header doesn\'t contain sign in button').toContainText('Sign in');
+  await expect(productPage.getTitleLocator(), 'Product name is incorrect').toHaveText(productName);
+  await expect(productPage.getPriceLocator(), 'Product price is incorrect').toHaveText('14.15');
+  await expect(productPage.getAddToCartButtonLocator(), 'Add to cart button is not visible').toBeVisible();
+  await expect(productPage.getAddedToFavoritesLocator(), 'Add to favorites button is not visible').toBeVisible();
+  await expect(productPage.getNavSignInLocator(), 'Header doesn\'t contain sign in button').toContainText('Sign in');
 
 
 });

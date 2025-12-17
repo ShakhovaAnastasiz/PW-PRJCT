@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-login": "npx playwright test tests/login.spec.ts",
+    "test-login": "npx playwright test tests/tests.spec.ts",
     "test-all": "npx playwright test",
     "lint": "npx eslint . --fix"
   },
