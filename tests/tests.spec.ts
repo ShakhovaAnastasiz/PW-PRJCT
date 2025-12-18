@@ -5,7 +5,11 @@ import { HomePage } from '../pages/home.page';
 import { ProductPage } from '../pages/product.page';
 import {testUser} from '../credinals.data'
 
-test.skip('Login', async ({ page }) => {
+test('Login', async ({ page }) => {
+    test.skip(
+      !!process.env.CI,
+      'Test is skipped in CI due to the Cloudflare protection.'
+    );
   const loginPage = new LoginPage(page); 
   const accountPage = new AccountPage(page); 
   await page.goto('/auth/login');
