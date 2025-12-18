@@ -13,7 +13,7 @@
         this.passwordInput = page.locator('#password');
         this.loginButton = page.getByRole('button', {name: 'Login'});
     }
-    async PerformLogin(email: string, password: string){
+    async performLogin(email: string, password: string){
         await this.emailInput.fill(email);
         await this.passwordInput.fill(password);
         await this.loginButton.click();

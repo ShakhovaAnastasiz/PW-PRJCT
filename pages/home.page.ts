@@ -13,7 +13,7 @@ export class HomePage{
         this.header = new Header(page);
     }
 
-    async ClickOnProductCard(productName: string){
+    async clickOnProductCard(productName: string){
         const productCard = this.itemCardLocator.filter({ hasText: productName }).first();
         await productCard.click();
     }

@@ -24,7 +24,7 @@ export default defineConfig(
     }
   },
     {
-    files: ['tests/**'],
+    files: ['tests/**', 'pages/**'],
     extends: [playwright.configs['flat/recommended']],
     rules: {
       // Customize Playwright rules

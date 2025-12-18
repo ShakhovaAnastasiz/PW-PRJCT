@@ -3,12 +3,13 @@ import { LoginPage } from '../pages/login.page';
 import { AccountPage } from '../pages/account.page';
 import { HomePage } from '../pages/home.page';
 import { ProductPage } from '../pages/product.page';
+import {testUser} from '../credinals.data'
 
 test('Login', async ({ page }) => {
   const loginPage = new LoginPage(page); 
   const accountPage = new AccountPage(page); 
   await page.goto('/auth/login');
-  await loginPage.PerformLogin('customer@practicesoftwaretesting.com', 'welcome01');
+  await loginPage.performLogin(testUser.email, testUser.password);
   await expect (page, 'Incorrect URL').toHaveURL('/account');
   await expect(accountPage.getPageTittleLocator(), 'Page title wasn\'t found').toHaveText('My account');
   await expect(accountPage.getNavMenuLocator(), 'Username is incorrect').toContainText('Jane Doe');
@@ -20,7 +21,7 @@ test('Verify unauthorized user can view product details', async ({ page }) => {
   const productName = 'Combination Pliers';
 
   await page.goto('/');
-  await homePage.ClickOnProductCard(productName);
+  await homePage.clickOnProductCard(productName);
 
   await expect (page, 'Incorrect URL').toHaveURL(/\/product\/.+/);
   await expect(productPage.getTitleLocator(), 'Product name is incorrect').toHaveText(productName);
