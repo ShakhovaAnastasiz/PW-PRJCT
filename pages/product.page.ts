@@ -6,7 +6,7 @@ export class ProductPage{
     readonly itemTitleLocator: Locator;
     readonly itemPriceLocator: Locator;
     readonly addToCartButtonLocator: Locator;
-    readonly addToFavoritesLocator: Locator;
+    readonly addToFavoritesButtonLocator: Locator;
     readonly header: Header;
 
     constructor(page: Page){
@@ -14,7 +14,7 @@ export class ProductPage{
         this.itemTitleLocator = page.getByTestId('product-name');
         this.itemPriceLocator = page.getByTestId('unit-price');
         this.addToCartButtonLocator = page.getByTestId('add-to-cart');
-        this.addToFavoritesLocator = page.getByTestId('add-to-favorites');
+        this.addToFavoritesButtonLocator = page.getByTestId('add-to-favorites');
         this.header = new Header(page);
     }
         getTitleLocator(): Locator{ 
@@ -29,8 +29,8 @@ export class ProductPage{
         return this.addToCartButtonLocator;
     }
 
-    getAddedToFavoritesLocator(): Locator{ 
-        return this.addToFavoritesLocator;
+    getAddToFavoritesButtonLocator(): Locator{ 
+        return this.addToFavoritesButtonLocator;
     }
 
     getNavSignInLocator(): Locator{ 

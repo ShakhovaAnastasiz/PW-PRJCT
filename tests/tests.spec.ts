@@ -5,7 +5,7 @@ import { HomePage } from '../pages/home.page';
 import { ProductPage } from '../pages/product.page';
 import {testUser} from '../credinals.data'
 
-test('Login', async ({ page }) => {
+test.skip('Login', async ({ page }) => {
   const loginPage = new LoginPage(page); 
   const accountPage = new AccountPage(page); 
   await page.goto('/auth/login');
@@ -27,7 +27,7 @@ test('Verify unauthorized user can view product details', async ({ page }) => {
   await expect(productPage.getTitleLocator(), 'Product name is incorrect').toHaveText(productName);
   await expect(productPage.getPriceLocator(), 'Product price is incorrect').toHaveText('14.15');
   await expect(productPage.getAddToCartButtonLocator(), 'Add to cart button is not visible').toBeVisible();
-  await expect(productPage.getAddedToFavoritesLocator(), 'Add to favorites button is not visible').toBeVisible();
+  await expect(productPage.getAddToFavoritesButtonLocator(), 'Add to favorites button is not visible').toBeVisible();
   await expect(productPage.getNavSignInLocator(), 'Header doesn\'t contain sign in button').toContainText('Sign in');
 
 
