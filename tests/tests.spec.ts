@@ -66,6 +66,7 @@ test('Verify user can add product to cart', async ({ page }) => {
   await expect(productPage.header.getCartQuantityLocator(), 'Cart quantity is incorrect').toHaveText('1');
 
   await productPage.header.getCartIconLocator().click();
+  await checkoutPage.getProceedCheckoutButtonLocator().waitFor();
   const productsInCart = await checkoutPage.getProductsInCart();
   // Verify the number of products in the cart table equals 1.
   await expect(productsInCart.length, 'Number of products in the cart is incorrect').toBe(1);
@@ -103,7 +104,10 @@ test('Verify user can filter products by category', async ({ page }) => {
   const randomCategory = homePage.getRandomCategory();
   const categoryFilterLocator = homePage.getCategoryFilterLocator(randomCategory);
   await categoryFilterLocator.check();
+  await homePage.getItemTitleLocator(`${randomCategory}`).first().waitFor();
 
   const productTitles = await homePage.getAllVisibleTitles();
-  await expect(productTitles, ' Some products do not belong to the selected category' ).toContain(randomCategory)
+  productTitles.forEach(title =>
+    expect(title, `Some product "${title}" does not belong to the selected category "${randomCategory}"`).toContain(randomCategory)
+  );
 });

@@ -7,13 +7,13 @@ export enum ProductNames {
 }
 
 export enum FiltersByCategoryHandTools{
-    'Hammer' = 'Hammer',
-    'Pliers' = 'Pliers',
+   'Screwdriver' = 'Screwdriver',
 }
 
 export enum FiltersByCategoryPowerTools{
     'Sander' = 'Sander',
     'Drill' = 'Drill',
+    'Saw' = 'Saw',
 }
 
 export enum FiltersByCategoryOther{}
@@ -45,6 +45,13 @@ export class HomePage{
 
     async goToHomePage(){
         await this.page.goto('/');
+    }
+
+    getItemTitleLocator(text?: string): Locator {
+        if (text) {
+            return this.itemTitleLocator.locator(`:scope`, { hasText: text });
+        }
+        return this.itemTitleLocator;
     }
 
     async clickOnProductCard(productName: string){
