@@ -17,6 +17,11 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Ensure .auth folder exists
+      run: mkdir -p playwright/.auth
+      # Тест авторизації
+    - name: Run Auth Project (save storageState)
+      run: npx playwright test --project=auth
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
