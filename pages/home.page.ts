@@ -94,7 +94,7 @@ export class HomePage{
 }
 
     getCategoryFilterLocator(category: string): Locator {
-        return this.page.locator(`label:has-text("${category}") input[name="category_id"]`);
+        return this.page.locator(`label >> text="${category}" >> input[name="category_id"]`);
     }
 
     getRandomCategory(): string {
