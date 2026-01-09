@@ -14,16 +14,4 @@ export class Header {
     this.cartQuantityLocator = page.getByTestId("cart-quantity");
     this.cartIconLocator = page.getByTestId("nav-cart");
   }
-  getNavMenuLocator(): Locator {
-    return this.navMenuLocator;
-  }
-  getNavSignInLocator(): Locator {
-    return this.navSignInLocator;
-  }
-  getCartQuantityLocator(): Locator {
-    return this.cartQuantityLocator;
-  }
-  getCartIconLocator(): Locator {
-    return this.cartIconLocator;
-  }
 }

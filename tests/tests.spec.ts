@@ -2,17 +2,13 @@ import { test, expect } from "@playwright/test";
 import { AccountPage } from "../pages/account.page";
 import { random } from "../utils/utils";
 
-import {
-  HomePage,
-  ProductNames,
-  SortType,
-} from "../pages/home.page";
+import { HomePage, ProductNames, SortType } from "../pages/home.page";
 import { ProductPage } from "../pages/product.page";
 import { CheckoutPage } from "../pages/checkout.page";
 
 const authFile = "playwright/.auth/user.json";
 
-test.describe("Authenticated user tests", () => {
+test.describe("Authenticated user tests", () => { //  should I delete this test as we moved login to auth.login.spec.ts?
   test.use({ storageState: authFile });
   test("Login", async ({ page }) => {
     test.skip(
@@ -24,11 +20,11 @@ test.describe("Authenticated user tests", () => {
     await page.goto("/account");
 
     await expect(
-      accountPage.getPageTittleLocator(),
+      accountPage.pageTitleLocator,
       "Page title wasn't found"
     ).toHaveText("My account");
     await expect(
-      accountPage.getNavMenuLocator(),
+      accountPage.header.navMenuLocator,
       "Username is incorrect"
     ).toContainText("Jane Doe");
   });
@@ -44,23 +40,23 @@ test("Verify unauthorized user can view product details", async ({ page }) => {
 
   await expect(page, "Incorrect URL").toHaveURL(/\/product\/.+/);
   await expect(
-    productPage.getTitleLocator(),
+    productPage.itemTitleLocator,
     "Product name is incorrect"
   ).toHaveText(productName);
   await expect(
-    productPage.getPriceLocator(),
+    productPage.itemPriceLocator,
     "Product price is incorrect"
   ).toHaveText("14.15");
   await expect(
-    productPage.getAddToCartButtonLocator(),
+    productPage.addToCartButtonLocator,
     "Add to cart button is not visible"
   ).toBeVisible();
   await expect(
-    productPage.getAddToFavoritesButtonLocator(),
+    productPage.addToFavoritesButtonLocator,
     "Add to favorites button is not visible"
   ).toBeVisible();
   await expect(
-    productPage.getNavSignInLocator(),
+    productPage.header.navMenuLocator,
     "Header doesn't contain sign in button"
   ).toContainText("Sign in");
 });
@@ -75,43 +71,43 @@ test("Verify user can add product to cart", async ({ page }) => {
   await homePage.clickOnProductCard(productName);
   // Verify product name is "Slip Joint Pliers".
   await expect(
-    productPage.getTitleLocator(),
+    productPage.itemTitleLocator,
     "Product name is incorrect"
   ).toHaveText(productName);
   //  Verify product price is 9.17.
   await expect(
-    productPage.getPriceLocator(),
+    productPage.itemPriceLocator,
     "Product price is incorrect"
   ).toHaveText("9.17");
 
-  await productPage.getAddToCartButtonLocator().click();
+  await productPage.addToCartButtonLocator.click();
   // Verify alert message text is "Product added to shopping cart".
   await expect(
-    productPage.getAlertProductAddedToCartLocator(),
+    productPage.alertProductAddedToCartLocator,
     "Alert message text is incorrect"
   ).toHaveText("Product added to shopping cart.");
   // Verify alert is shown at least for 7s.
   await expect(
-    productPage.getAlertProductAddedToCartLocator(),
+    productPage.alertProductAddedToCartLocator,
     "Alert message is not visible"
   ).toBeVisible();
   await expect(
-    productPage.getAlertProductAddedToCartLocator(),
+    productPage.alertProductAddedToCartLocator,
     "Alert message is not visible after 7s"
   ).toBeVisible({ timeout: 7_000 });
   // Verify alert disappears in 8 seconds.
   await expect(
-    productPage.getAlertProductAddedToCartLocator(),
+    productPage.alertProductAddedToCartLocator,
     "Alert message didn't disappear"
   ).toBeHidden({ timeout: 10_000 });
   // Verify cart icon in navigation shows quantity = 1.
   await expect(
-    productPage.header.getCartQuantityLocator(),
+    productPage.header.cartQuantityLocator,
     "Cart quantity is incorrect"
   ).toHaveText("1");
 
-  await productPage.header.getCartIconLocator().click();
-  await checkoutPage.getProceedCheckoutButtonLocator().waitFor();
+  await productPage.header.cartIconLocator.click();
+  await checkoutPage.proceedCheckoutButtonLocator.waitFor();
   const productsInCart = await checkoutPage.getProductsInCart();
   // Verify the number of products in the cart table equals 1.
   expect(
@@ -124,34 +120,54 @@ test("Verify user can add product to cart", async ({ page }) => {
   );
   // Verify "Proceed to Checkout" button is visible.
   await expect(
-    checkoutPage.getProceedCheckoutButtonLocator(),
+    checkoutPage.proceedCheckoutButtonLocator,
     '"Proceed to Checkout" button is not visible'
   ).toBeVisible();
 });
 
-[
-  SortType.priceHighLow,
-  SortType.priceLowHigh,
-  SortType.nameAZ,
-  SortType.nameZA,
-].forEach((sortBy) => {
-  test(`Verify user can perform sorting by name ${sortBy}`, async ({
-    page,
-  }) => {
-    const homePage = new HomePage(page);
-    await homePage.goToHomePage();
-    const sortFunction = [
-      SortType.priceHighLow,
-      SortType.priceLowHigh,
-    ].includes(sortBy)
-      ? homePage.sortedByPrice
-      : homePage.sortedByTitle;
+test.describe("Sorting", () => {
+  const priceSortTypes = [
+    SortType.priceHighLow,
+    SortType.priceLowHigh,
+  ] as const;
 
-    const { actualResult, expectedResult } =
-      await sortFunction(sortBy); //reciving error Argument of type 'SortType' is not assignable to parameter of type 'never'. What is better way to fix it?
+  for (const sortBy of priceSortTypes) {
+    test(`Verify user can perform sorting by price: ${sortBy}`, async ({
+      page,
+    }) => {
+      const homePage = new HomePage(page);
+      await homePage.goToHomePage();
 
-    expect(actualResult).toEqual(expectedResult);
-  });
+      const actual = await homePage.getPricesAfterSorting(sortBy);
+      const expected = [...actual].sort((a, b) => a - b);
+
+      if (sortBy === SortType.priceHighLow) {
+        expected.reverse();
+      }
+
+      expect(actual).toEqual(expected);
+    });
+  }
+
+  const nameSortTypes = [SortType.nameAZ, SortType.nameZA] as const;
+
+  for (const sortBy of nameSortTypes) {
+    test(`Verify user can perform sorting by name: ${sortBy}`, async ({
+      page,
+    }) => {
+      const homePage = new HomePage(page);
+      await homePage.goToHomePage();
+
+      const actual = await homePage.getTitlesAfterSorting(sortBy);
+      const expected = [...actual].sort();
+
+      if (sortBy === SortType.nameZA) {
+        expected.reverse();
+      }
+
+      expect(actual).toEqual(expected);
+    });
+  }
 });
 
 /* will delete it after merge

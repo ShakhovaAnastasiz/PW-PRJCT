@@ -12,10 +12,4 @@ export class AccountPage {
     this.header = new Header(page);
   }
 
-  getPageTittleLocator(): Locator {
-    return this.pageTitleLocator;
-  }
-  getNavMenuLocator(): Locator {
-    return this.header.getNavMenuLocator();
-  }
 }

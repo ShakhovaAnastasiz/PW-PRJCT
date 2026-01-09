@@ -66,52 +66,25 @@ export class HomePage {
     await productCard.click();
   }
 
-  getNavSignInLocator(): Locator {
-    return this.header.getNavSignInLocator();
-  }
-
   async getAllVisibleTitles(): Promise<string[]> {
     return await this.itemTitleLocator.allInnerTexts();
   }
 
-  sortedByPrice = async (
-    sortType: SortType.priceLowHigh | SortType.priceHighLow
-  ): Promise<{ actualResult: number[]; expectedResult: number[] }> => {
-    await this.sortSelectLocator.selectOption({ label: sortType });
+async getPricesAfterSorting(
+  sortType: SortType.priceLowHigh | SortType.priceHighLow
+): Promise<number[]> {
+  await this.sortSelectLocator.selectOption({ label: sortType });
 
-    const priceStrings: string[] = await this.itemPriceLocator.allInnerTexts();
-    const actualPrices: number[] = priceStrings.map((p) =>
-      parseFloat(p.replace("$", ""))
-    );
+  const priceStrings = await this.itemPriceLocator.allInnerTexts();
+  return priceStrings.map((p) => parseFloat(p.replace('$', '')));
+}
 
-    const sortedPrices = [...actualPrices].sort((a, b) => a - b);
-
-    if (sortType === SortType.priceHighLow) {
-      sortedPrices.reverse();
-    }
-
-    return { actualResult: actualPrices, expectedResult: sortedPrices };
-  };
-
-  sortedByTitle = async (
-    sortType: SortType.nameAZ | SortType.nameZA
-  ): Promise<{
-    actualResult: string[];
-    expectedResult: string[];
-  }> => {
-    await this.sortSelectLocator.selectOption({ label: sortType });
-    const listOfProductTitlesAfterSort: string[] =
-      await this.getAllVisibleTitles();
-    let sortedTitles: string[] = [...listOfProductTitlesAfterSort].sort();
-    if (sortType === SortType.nameZA) {
-      sortedTitles = sortedTitles.reverse();
-    }
-
-    return {
-      actualResult: listOfProductTitlesAfterSort,
-      expectedResult: sortedTitles,
-    };
-  };
+async getTitlesAfterSorting(
+  sortType: SortType.nameAZ | SortType.nameZA
+): Promise<string[]> {
+  await this.sortSelectLocator.selectOption({ label: sortType });
+  return this.getAllVisibleTitles();
+}
 
   getCategoryFilterLocator(category: string): Locator {
     return this.page.locator(

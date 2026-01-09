@@ -20,27 +20,4 @@ export class ProductPage {
     this.alertProductAddedToCartLocator = page.getByRole("alert");
     this.header = new Header(page);
   }
-  getTitleLocator(): Locator {
-    return this.itemTitleLocator;
-  }
-
-  getPriceLocator(): Locator {
-    return this.itemPriceLocator;
-  }
-
-  getAddToCartButtonLocator(): Locator {
-    return this.addToCartButtonLocator;
-  }
-
-  getAddToFavoritesButtonLocator(): Locator {
-    return this.addToFavoritesButtonLocator;
-  }
-
-  getNavSignInLocator(): Locator {
-    return this.header.getNavSignInLocator();
-  }
-
-  getAlertProductAddedToCartLocator(): Locator {
-    return this.alertProductAddedToCartLocator;
-  }
 }

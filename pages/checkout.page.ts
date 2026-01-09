@@ -21,10 +21,6 @@ export class CheckoutPage {
     this.header = new Header(page);
   }
 
-  getProceedCheckoutButtonLocator(): Locator {
-    return this.proceedCheckoutButtonLocator;
-  }
-
   async getProductsInCart(): Promise<CartItem[]> {
     const rows = this.tableProductsInCartLocator.locator("tbody tr");
     const itemCount = await rows.count();
