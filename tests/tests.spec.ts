@@ -8,7 +8,7 @@ import { CheckoutPage } from "../pages/checkout.page";
 
 const authFile = "playwright/.auth/user.json";
 
-test.describe("Authenticated user tests", () => { //  should I delete this test as we moved login to auth.login.spec.ts?
+test.describe("Authenticated user tests", () => { 
   test.use({ storageState: authFile });
   test("Login", async ({ page }) => {
     test.skip(
@@ -19,7 +19,7 @@ test.describe("Authenticated user tests", () => { //  should I delete this test 
     const accountPage = new AccountPage(page);
     await page.goto("/account");
 
-    await expect(
+    await  expect(
       accountPage.pageTitleLocator,
       "Page title wasn't found"
     ).toHaveText("My account");
@@ -164,27 +164,11 @@ test.describe("Sorting", () => {
       if (sortBy === SortType.nameZA) {
         expected.reverse();
       }
-
+ 
       expect(actual).toEqual(expected);
     });
   }
 });
-
-/* will delete it after merge
-[SortType.priceHighLow, SortType.priceLowHigh].forEach((sorting) => {
-  test(`Verify user can perform sorting by price ${sorting}`, async ({
-    page,
-  }) => {
-    const homePage = new HomePage(page);
-
-    await homePage.goToHomePage();
-    const { actualPrices, sortedPrices } = await homePage.sortedByPrice(
-      sorting as SortType.priceLowHigh | SortType.priceHighLow
-    );
-    expect(actualPrices).toEqual(sortedPrices);
-  });
-});
-*/
 
 test("Verify user can filter products by category", async ({ page }) => {
   const homePage = new HomePage(page);
