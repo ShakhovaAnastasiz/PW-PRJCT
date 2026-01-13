@@ -1,114 +1,110 @@
-import { test, expect } from "@playwright/test";
-import { AccountPage } from "../pages/account.page";
+import { expect } from "@playwright/test";
 import { random } from "../utils/utils";
-
-import { HomePage, ProductNames, SortType } from "../pages/home.page";
-import { ProductPage } from "../pages/product.page";
-import { CheckoutPage } from "../pages/checkout.page";
+import { test } from "../fixtures";
+import { ProductNames } from "../testData/productNames";
+import { SortType } from "../testData/sortTypes";
+import { testUser } from "../credinals.data";
 
 const authFile = "playwright/.auth/user.json";
 
-test.describe("Authenticated user tests", () => { 
+test.describe("Authenticated user tests", () => {
   test.use({ storageState: authFile });
-  test("Login", async ({ page }) => {
+  test("Login", async ({ page, app }) => {
     test.skip(
       !!process.env.CI,
       "Test is skipped in CI due to the Cloudflare protection."
     );
 
-    const accountPage = new AccountPage(page);
     await page.goto("/account");
 
-    await  expect(
-      accountPage.pageTitleLocator,
+    await expect(
+      app.accountPage.pageTitleLocator,
       "Page title wasn't found"
     ).toHaveText("My account");
     await expect(
-      accountPage.header.navMenuLocator,
+      app.accountPage.header.navMenuLocator,
       "Username is incorrect"
     ).toContainText("Jane Doe");
   });
 });
 
-test("Verify unauthorized user can view product details", async ({ page }) => {
-  const homePage = new HomePage(page);
-  const productPage = new ProductPage(page);
+test("Verify unauthorized user can view product details", async ({
+  page,
+  app,
+}) => {
   const productName = ProductNames.combinationPliers;
 
-  await homePage.goToHomePage();
-  await homePage.clickOnProductCard(productName);
+  await app.homePage.goToHomePage();
+  await app.homePage.clickOnProductCard(productName);
 
   await expect(page, "Incorrect URL").toHaveURL(/\/product\/.+/);
   await expect(
-    productPage.itemTitleLocator,
+    app.productPage.itemTitleLocator,
     "Product name is incorrect"
   ).toHaveText(productName);
   await expect(
-    productPage.itemPriceLocator,
+    app.productPage.itemPriceLocator,
     "Product price is incorrect"
   ).toHaveText("14.15");
   await expect(
-    productPage.addToCartButtonLocator,
+    app.productPage.addToCartButtonLocator,
     "Add to cart button is not visible"
   ).toBeVisible();
   await expect(
-    productPage.addToFavoritesButtonLocator,
+    app.productPage.addToFavoritesButtonLocator,
     "Add to favorites button is not visible"
   ).toBeVisible();
   await expect(
-    productPage.header.navMenuLocator,
+    app.productPage.header.navMenuLocator,
     "Header doesn't contain sign in button"
   ).toContainText("Sign in");
 });
 
-test("Verify user can add product to cart", async ({ page }) => {
-  const homePage = new HomePage(page);
-  const productPage = new ProductPage(page);
-  const checkoutPage = new CheckoutPage(page);
+test("Verify user can add product to cart", async ({ app }) => {
   const productName = ProductNames.slipJointPliers;
 
-  await homePage.goToHomePage();
-  await homePage.clickOnProductCard(productName);
+  await app.homePage.goToHomePage();
+  await app.homePage.clickOnProductCard(productName);
   // Verify product name is "Slip Joint Pliers".
   await expect(
-    productPage.itemTitleLocator,
+    app.productPage.itemTitleLocator,
     "Product name is incorrect"
   ).toHaveText(productName);
   //  Verify product price is 9.17.
   await expect(
-    productPage.itemPriceLocator,
+    app.productPage.itemPriceLocator,
     "Product price is incorrect"
   ).toHaveText("9.17");
 
-  await productPage.addToCartButtonLocator.click();
+  await app.productPage.addToCartButtonLocator.click();
   // Verify alert message text is "Product added to shopping cart".
   await expect(
-    productPage.alertProductAddedToCartLocator,
+    app.productPage.alertProductAddedToCartLocator,
     "Alert message text is incorrect"
   ).toHaveText("Product added to shopping cart.");
   // Verify alert is shown at least for 7s.
   await expect(
-    productPage.alertProductAddedToCartLocator,
+    app.productPage.alertProductAddedToCartLocator,
     "Alert message is not visible"
   ).toBeVisible();
   await expect(
-    productPage.alertProductAddedToCartLocator,
+    app.productPage.alertProductAddedToCartLocator,
     "Alert message is not visible after 7s"
   ).toBeVisible({ timeout: 7_000 });
   // Verify alert disappears in 8 seconds.
   await expect(
-    productPage.alertProductAddedToCartLocator,
+    app.productPage.alertProductAddedToCartLocator,
     "Alert message didn't disappear"
   ).toBeHidden({ timeout: 10_000 });
   // Verify cart icon in navigation shows quantity = 1.
   await expect(
-    productPage.header.cartQuantityLocator,
+    app.productPage.header.cartQuantityLocator,
     "Cart quantity is incorrect"
   ).toHaveText("1");
 
-  await productPage.header.cartIconLocator.click();
-  await checkoutPage.proceedCheckoutButtonLocator.waitFor();
-  const productsInCart = await checkoutPage.getProductsInCart();
+  await app.productPage.header.cartIconLocator.click();
+  await app.checkoutPage.proceedCheckoutButton1Locator.waitFor();
+  const productsInCart = await app.checkoutPage.getProductsInCart();
   // Verify the number of products in the cart table equals 1.
   expect(
     productsInCart.length,
@@ -120,7 +116,7 @@ test("Verify user can add product to cart", async ({ page }) => {
   );
   // Verify "Proceed to Checkout" button is visible.
   await expect(
-    checkoutPage.proceedCheckoutButtonLocator,
+    app.checkoutPage.proceedCheckoutButton1Locator,
     '"Proceed to Checkout" button is not visible'
   ).toBeVisible();
 });
@@ -133,12 +129,11 @@ test.describe("Sorting", () => {
 
   for (const sortBy of priceSortTypes) {
     test(`Verify user can perform sorting by price: ${sortBy}`, async ({
-      page,
+      app,
     }) => {
-      const homePage = new HomePage(page);
-      await homePage.goToHomePage();
+      await app.homePage.goToHomePage();
 
-      const actual = await homePage.getPricesAfterSorting(sortBy);
+      const actual = await app.homePage.getPricesAfterSorting(sortBy);
       const expected = [...actual].sort((a, b) => a - b);
 
       if (sortBy === SortType.priceHighLow) {
@@ -153,38 +148,99 @@ test.describe("Sorting", () => {
 
   for (const sortBy of nameSortTypes) {
     test(`Verify user can perform sorting by name: ${sortBy}`, async ({
-      page,
+      app,
     }) => {
-      const homePage = new HomePage(page);
-      await homePage.goToHomePage();
+      await app.homePage.goToHomePage();
 
-      const actual = await homePage.getTitlesAfterSorting(sortBy);
+      const actual = await app.homePage.getTitlesAfterSorting(sortBy);
       const expected = [...actual].sort();
 
       if (sortBy === SortType.nameZA) {
         expected.reverse();
       }
- 
+
       expect(actual).toEqual(expected);
     });
   }
 });
 
-test("Verify user can filter products by category", async ({ page }) => {
-  const homePage = new HomePage(page);
-  await homePage.goToHomePage();
+test("Verify user can filter products by category", async ({ app }) => {
+  await app.homePage.goToHomePage();
 
-  const randomCategory = random(homePage.allCategories);
+  const randomCategory = random(app.homePage.allCategories);
   const categoryFilterLocator =
-    homePage.getCategoryFilterLocator(randomCategory);
+    app.homePage.getCategoryFilterLocator(randomCategory);
   await categoryFilterLocator.check();
-  await homePage.getItemTitleLocator(randomCategory).first().waitFor();
+  await app.homePage.getItemTitleLocator(randomCategory).first().waitFor();
 
-  const productTitles = await homePage.getAllVisibleTitles();
+  const productTitles = await app.homePage.getAllVisibleTitles();
   productTitles.forEach((title) =>
     expect(
       title,
       `Some product "${title}" does not belong to the selected category "${randomCategory}"`
     ).toContain(randomCategory)
   );
+});
+
+test("Verify user can complete checkout with credit card", async ({
+  loggedInApp,
+}) => {
+  await loggedInApp.homePage.goToHomePage();
+  await loggedInApp.homePage.itemCardLocator.nth(0).click();
+
+  const productTitle =
+    await loggedInApp.productPage.itemTitleLocator.innerText();
+  const productPriceText =
+    await loggedInApp.productPage.itemPriceLocator.innerText();
+  const productPrice = parseFloat(productPriceText.replace("$", ""));
+
+  await loggedInApp.productPage.addToCartButtonLocator.click();
+  await loggedInApp.productPage.header.cartIconLocator.click();
+  await loggedInApp.checkoutPage.proceedCheckoutButton1Locator.waitFor();
+
+  const productsInCart = await loggedInApp.checkoutPage.getProductsInCart();
+  expect(productsInCart[0].name, "Product title in the cart is incorrect").toBe(
+    productTitle
+  );
+  expect(
+    productsInCart[0].price,
+    "Product price in the cart is incorrect"
+  ).toBe(productPrice);
+  await expect(
+    loggedInApp.checkoutPage.cartTotalLocator,
+    "Cart total is incorrect"
+  ).toHaveText("$" + productPrice);
+
+  await loggedInApp.checkoutPage.proceedCheckoutButton1Locator.click();
+  await loggedInApp.checkoutPage.proceedCheckoutButton2Locator.click();
+
+  await loggedInApp.checkoutPage.billingAddressFragment.stateLocator.fill(
+    "California"
+  );
+  await loggedInApp.checkoutPage.billingAddressFragment.postalCodeLocator.fill(
+    "90001"
+  );
+  await loggedInApp.checkoutPage.proceedCheckoutButton3Locator.click();
+
+  await loggedInApp.checkoutPage.paymentFragment.paymentMethodDropdownLocator.selectOption(
+    "credit-card"
+  );
+  await loggedInApp.checkoutPage.paymentFragment.creditCardNumber.fill(
+    "1111-1111-1111-1111"
+  );
+
+  const date = new Date();              // поточна дата
+  date.setMonth(date.getMonth() + 3);
+  await loggedInApp.checkoutPage.paymentFragment.creditCardExpiry.fill(
+    `${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`
+  );
+  await loggedInApp.checkoutPage.paymentFragment.creditCardCvv.fill("111");
+  await loggedInApp.checkoutPage.paymentFragment.cardHolderNameLocator.fill(
+    testUser.fullName
+  );
+  await loggedInApp.checkoutPage.paymentFragment.confirmButtonLocator.click();
+  await expect(
+    loggedInApp.checkoutPage.paymentFragment.paymentSuccessMessage,
+    "Payment success message is not visible"
+  ).toBeVisible();
 });
