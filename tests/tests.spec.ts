@@ -3,7 +3,7 @@ import { random } from "../utils/utils";
 import { test } from "../fixtures";
 import { ProductNames } from "../testData/productNames";
 import { SortType } from "../testData/sortTypes";
-import { testUser } from "../credinals.data";
+import { PaymentData } from "../testData/paymentData";
 
 const authFile = "playwright/.auth/user.json";
 
@@ -226,17 +226,17 @@ test("Verify user can complete checkout with credit card", async ({
     "credit-card"
   );
   await loggedInApp.checkoutPage.paymentFragment.creditCardNumber.fill(
-    "1111-1111-1111-1111"
+    PaymentData.creditCardNumber
   );
 
-  const date = new Date();              // поточна дата
-  date.setMonth(date.getMonth() + 3);
   await loggedInApp.checkoutPage.paymentFragment.creditCardExpiry.fill(
-    `${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`
+    PaymentData.creditCardExpiry
   );
-  await loggedInApp.checkoutPage.paymentFragment.creditCardCvv.fill("111");
+  await loggedInApp.checkoutPage.paymentFragment.creditCardCvv.fill(
+    PaymentData.creditCardCvv
+  );
   await loggedInApp.checkoutPage.paymentFragment.cardHolderNameLocator.fill(
-    testUser.fullName
+    PaymentData.cardHolderName
   );
   await loggedInApp.checkoutPage.paymentFragment.confirmButtonLocator.click();
   await expect(
