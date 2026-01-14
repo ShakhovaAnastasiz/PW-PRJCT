@@ -12,7 +12,7 @@ export class LoginPage {
     this.passwordInput = page.locator("#password");
     this.loginButton = page.getByRole("button", { name: "Login" });
   }
-  async performLogin(email: string, password: string) {
+  async performLogin(email: string, password: string): Promise <void> {
     await this.emailInput.fill(email);
     await this.passwordInput.fill(password);
     await this.loginButton.click();

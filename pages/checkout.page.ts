@@ -1,5 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 import { Header } from "./header.fragment";
+import { BillingAddressFragment } from "./billingAddress.fragment";
+import { PaymentFragment } from "./payment.fragment";
 
 type CartItem = {
   name: string;
@@ -11,14 +13,24 @@ type CartItem = {
 export class CheckoutPage {
   readonly page: Page;
   readonly tableProductsInCartLocator: Locator;
-  readonly proceedCheckoutButtonLocator: Locator;
+  readonly proceedCheckoutButton1Locator: Locator;
+  readonly proceedCheckoutButton2Locator: Locator;
+  readonly proceedCheckoutButton3Locator: Locator;
+  readonly cartTotalLocator: Locator;
   readonly header: Header;
+  readonly billingAddressFragment: BillingAddressFragment;
+  readonly paymentFragment: PaymentFragment;
 
   constructor(page: Page) {
     this.page = page;
     this.tableProductsInCartLocator = page.locator("table");
-    this.proceedCheckoutButtonLocator = page.getByTestId("proceed-1");
+    this.proceedCheckoutButton1Locator = page.getByTestId("proceed-1");
+    this.proceedCheckoutButton2Locator = page.getByTestId("proceed-2");
+    this.proceedCheckoutButton3Locator = page.getByTestId("proceed-3");
+    this.cartTotalLocator = page.getByTestId("cart-total");
     this.header = new Header(page);
+    this.billingAddressFragment = new BillingAddressFragment(page);
+    this.paymentFragment = new PaymentFragment(page);
   }
 
   async getProductsInCart(): Promise<CartItem[]> {
