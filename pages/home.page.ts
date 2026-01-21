@@ -1,6 +1,10 @@
 import { Page, Locator } from "@playwright/test";
 import { Header } from "./header.fragment";
-import { FiltersByCategoryHandTools, FiltersByCategoryOther, FiltersByCategoryPowerTools } from "../testData/productNames";
+import {
+  FiltersByCategoryHandTools,
+  FiltersByCategoryOther,
+  FiltersByCategoryPowerTools,
+} from "../testData/productNames";
 import { SortType } from "../testData/sortTypes";
 export class HomePage {
   readonly page: Page;
@@ -48,7 +52,7 @@ export class HomePage {
   }
 
   async getPricesAfterSorting(
-    sortType: SortType.priceLowHigh | SortType.priceHighLow
+    sortType: SortType.priceLowHigh | SortType.priceHighLow,
   ): Promise<number[]> {
     await this.sortSelectLocator.selectOption({ label: sortType });
 
@@ -57,7 +61,7 @@ export class HomePage {
   }
 
   async getTitlesAfterSorting(
-    sortType: SortType.nameAZ | SortType.nameZA
+    sortType: SortType.nameAZ | SortType.nameZA,
   ): Promise<string[]> {
     await this.sortSelectLocator.selectOption({ label: sortType });
     return this.getAllVisibleTitles();
@@ -65,7 +69,28 @@ export class HomePage {
 
   getCategoryFilterLocator(category: string): Locator {
     return this.page.locator(
-      `label >> text="${category}" >> input[name="category_id"]`
+      `label >> text="${category}" >> input[name="category_id"]`,
     );
+  }
+  async mockProducts(productAmount: number): Promise<void> {
+    await this.page.route("**/products*", async (route) => {
+      const products = Array.from({ length: productAmount }, (_, i) => ({
+        id: i + 1,
+        name: `Test product ${i + 1}`,
+        price: 10 + i,
+      }));
+
+      await route.fulfill({
+        json: {
+          current_page: 1,
+          data: products,
+          from: 1,
+          to: productAmount,
+          per_page: productAmount,
+          total: productAmount,
+          last_page: 1,
+        },
+      });
+    });
   }
 }
