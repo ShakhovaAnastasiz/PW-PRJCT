@@ -17,6 +17,7 @@ export const test = base.extend<MyFixtures>({
     // });
     // const page = await context.newPage();
 
+
     const token = await loginApi(request, testUser.email, testUser.password);
     await page.addInitScript((token: string) => {
       window.localStorage.setItem("auth-token", token);

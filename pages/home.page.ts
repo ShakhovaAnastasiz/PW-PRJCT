@@ -85,9 +85,9 @@ export class HomePage {
           current_page: 1,
           data: products,
           from: 1,
-          to: 20,
-          per_page: 20,
-          total: 20,
+          to: productAmount,
+          per_page: productAmount,
+          total: productAmount,
           last_page: 1,
         },
       });

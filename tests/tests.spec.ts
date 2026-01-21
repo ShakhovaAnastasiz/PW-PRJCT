@@ -246,11 +246,13 @@ test("Verify user can complete checkout with credit card", async ({
 });
 
 test("Verify 20 products are displayed per page by default", async ({
-  app
+  app,
 }) => {
-
   await app.homePage.mockProducts(20);
   await app.homePage.goToHomePage();
-  const productsCount = await app.homePage.itemCardLocator.count();
-  expect(productsCount, "Number of products displayed is incorrect").toBe(20);
+  const products = app.homePage.itemCardLocator;
+  await expect(
+    products,
+    "Number of products displayed is incorrect",
+  ).toHaveCount(20);
 });

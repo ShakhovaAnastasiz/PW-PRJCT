@@ -1,4 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
+import { API_BASE } from "./config";
 
 type LoginResponse = {
   access_token: string;
@@ -7,12 +8,12 @@ type LoginResponse = {
 export const loginApi = async (
   request: APIRequestContext,
   email: string,
-  password: string
+  password: string,
 ): Promise<string> => {
-  const response = await request.post("https://api.practicesoftwaretesting.com/users/login", {
+  const response = await request.post(`${API_BASE}/users/login`, {
     data: {
-      'email': email,
-      'password': password,
+      email,
+      password,
     },
   });
   const jsonData = (await response.json()) as LoginResponse;
