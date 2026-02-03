@@ -9,8 +9,7 @@ test("Login", async ({ app, page }) => {
     !!process.env.CI,
     "Test is skipped in CI due to the Cloudflare protection.",
   );
-  // const loginPage = new LoginPage(page);
-
+  
   await page.goto("/auth/login");
   await app.loginPage.performLogin(testUser.email, testUser.password);
   await expect(page, "Incorrect URL").toHaveURL("/account");
