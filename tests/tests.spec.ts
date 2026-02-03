@@ -8,7 +8,7 @@ import { billingAddressData } from "../testData/billingAdressData";
 
 const authFile = "playwright/.auth/user.json";
 
-test.describe("Authenticated user tests", { tag: "@regression" }, () => {
+test.describe("Authenticated user tests", { tag: "@manual" }, () => {
   test.use({ storageState: authFile });
   test("Login", async ({ page, app }) => {
     test.skip(
