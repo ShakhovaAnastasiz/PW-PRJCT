@@ -9,13 +9,12 @@ import { billingAddressData } from "../testData/billingAdressData";
 const authFile = "playwright/.auth/user.json";
 
 test.describe("Authenticated user tests", { tag: "@manual" }, () => {
+  test.skip(
+    !!process.env.CI,
+    "Test is skipped in CI due to the Cloudflare protection.",
+  );
   test.use({ storageState: authFile });
   test("Login", async ({ page, app }) => {
-    test.skip(
-      !!process.env.CI,
-      "Test is skipped in CI due to the Cloudflare protection.",
-    );
-
     await page.goto("/account");
 
     await expect(
