@@ -6,10 +6,6 @@ import path from "path";
 const authFile = path.join(__dirname, "../playwright/.auth/user.json");
 
 test("Login", async ({ page }) => {
-  test.skip(
-    !!process.env.CI,
-    "Test is skipped in CI due to the Cloudflare protection."
-  );
   const loginPage = new LoginPage(page);
 
   await page.goto("/auth/login");
