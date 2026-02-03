@@ -281,5 +281,4 @@ test("Verify 20 products are displayed per page by default", async ({
     products,
     "Number of products displayed is incorrect",
   ).toHaveCount(20);
-  
 });
