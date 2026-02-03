@@ -4,6 +4,7 @@ import { test } from "../fixtures";
 import { ProductNames } from "../testData/productNames";
 import { SortType } from "../testData/sortTypes";
 import { PaymentData } from "../testData/paymentData";
+import { billingAddressData } from "../testData/billingAdressData";
 
 const authFile = "playwright/.auth/user.json";
 
@@ -55,7 +56,7 @@ test("Verify unauthorized user can view product details", async ({
     "Add to favorites button is not visible",
   ).toBeVisible();
   await expect(
-    app.productPage.header.navMenuLocator,
+    app.productPage.header.navSignInLocator,
     "Header doesn't contain sign in button",
   ).toContainText("Sign in");
 });
@@ -132,15 +133,22 @@ test.describe("Sorting", () => {
       app,
     }) => {
       await app.homePage.goToHomePage();
+      await app.homePage.sortByPrice(sortBy);
 
-      const actual = await app.homePage.getPricesAfterSorting(sortBy);
-      const expected = [...actual].sort((a, b) => a - b);
+      await expect
+        .poll(
+          async () => {
+            const prices = await app.homePage.getItemPrices();
 
-      if (sortBy === SortType.priceHighLow) {
-        expected.reverse();
-      }
+            const expected = [...prices].sort((a, b) =>
+              sortBy === SortType.priceLowHigh ? a - b : b - a,
+            );
 
-      expect(actual).toEqual(expected);
+            return prices.every((price, index) => price === expected[index]);
+          },
+          { timeout: 30_000 },
+        )
+        .toBe(true);
     });
   }
 
@@ -152,14 +160,23 @@ test.describe("Sorting", () => {
     }) => {
       await app.homePage.goToHomePage();
 
-      const actual = await app.homePage.getTitlesAfterSorting(sortBy);
-      const expected = [...actual].sort();
+      await app.homePage.sortByName(sortBy);
+      await expect
+        .poll(
+          async () => {
+            const titles = await app.homePage.getItemTitles();
 
-      if (sortBy === SortType.nameZA) {
-        expected.reverse();
-      }
+            const expected = [...titles].sort((a, b) =>
+              sortBy === SortType.nameAZ
+                ? a.localeCompare(b)
+                : b.localeCompare(a),
+            );
 
-      expect(actual).toEqual(expected);
+            return titles.every((title, index) => title === expected[index]);
+          },
+          { timeout: 30_000 },
+        )
+        .toBe(true);
     });
   }
 });
@@ -173,7 +190,7 @@ test("Verify user can filter products by category", async ({ app }) => {
   await categoryFilterLocator.check();
   await app.homePage.getItemTitleLocator(randomCategory).first().waitFor();
 
-  const productTitles = await app.homePage.getAllVisibleTitles();
+  const productTitles = await app.homePage.getItemTitles();
   productTitles.forEach((title) =>
     expect(
       title,
@@ -215,10 +232,19 @@ test("Verify user can complete checkout with credit card", async ({
   await loggedInApp.checkoutPage.proceedCheckoutButton2Locator.click();
 
   await loggedInApp.checkoutPage.billingAddressFragment.stateLocator.fill(
-    "California",
+    billingAddressData.state,
   );
   await loggedInApp.checkoutPage.billingAddressFragment.postalCodeLocator.fill(
-    "90001",
+    billingAddressData.postalCode,
+  );
+  await loggedInApp.checkoutPage.billingAddressFragment.countryLocator.fill(
+    billingAddressData.country,   
+  );
+  await loggedInApp.checkoutPage.billingAddressFragment.cityLocator.fill(
+    billingAddressData.city,
+  );
+  await loggedInApp.checkoutPage.billingAddressFragment.streetLocator.fill(
+    billingAddressData.street,
   );
   await loggedInApp.checkoutPage.proceedCheckoutButton3Locator.click();
 

@@ -1,13 +1,19 @@
 name: Playwright Tests
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, week-15]
   pull_request:
     branches: [main, master]
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      WEB_BASE: ${{ secrets.WEB_BASE }}
+      API_BASE: ${{ secrets.API_BASE }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}
+      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      USER_NAME: ${{ secrets.USER_NAME }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
