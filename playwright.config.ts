@@ -60,6 +60,24 @@ export default defineConfig({
       use: { ...devices["Desktop Safari"] },
       dependencies: ["auth"],
     },
+    {
+      name: "smoke",
+      testMatch: /.*\.spec\.ts/,
+      grep: /@smoke/,
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+      dependencies: ["auth"],
+    },
+    {
+      name: "regression",
+      testMatch: /.*\.spec\.ts/,
+      grep: /@regression/,
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+      dependencies: ["auth"],
+    }
 
     /* Test against mobile viewports. */
     // {
