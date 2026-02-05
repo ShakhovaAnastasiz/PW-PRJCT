@@ -35,8 +35,10 @@ export default defineConfig({
     [
       "@testomatio/reporter/playwright",
       {
-        upload: true, 
-        runTitle: "E2E tests", 
+        upload: true,
+        runTitle: process.env.GITHUB_ACTIONS
+          ? "CI · Playwright"
+          : "Local · Playwright",
       },
     ],
   ],
