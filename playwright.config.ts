@@ -28,14 +28,33 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [
+    ["html"],
+    ["dot"],
+    ["json", { outputFile: "/playwright-report/json-test-results.json" }],
+    [
+      "@testomatio/reporter/playwright",
+      {
+        upload: true, 
+        runTitle: "E2E tests", 
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: WEB_BASE,
     testIdAttribute: "data-test",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace:'on',
+    // trace:'on',
+    // Capture screenshot after each test failure.
+    screenshot: "only-on-failure",
+
+    // Record trace only when retrying a test for the first time.
+    trace: "on-first-retry",
+
+    // Record video only when retrying a test for the first time.
+    video: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
@@ -72,7 +91,7 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
       },
-    }
+    },
 
     /* Test against mobile viewports. */
     // {

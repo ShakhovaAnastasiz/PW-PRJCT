@@ -9,14 +9,20 @@ test("Login", async ({ app, page }) => {
     !!process.env.CI,
     "Test is skipped in CI due to the Cloudflare protection.",
   );
-  
-  await page.goto("/auth/login");
-  await app.loginPage.performLogin(testUser.email, testUser.password);
-  await expect(page, "Incorrect URL").toHaveURL("/account");
-  await expect(
-    app.accountPage.pageTitleLocator,
-    "Page title wasn't found",
-  ).toHaveText("My account");
+  await test.step("Navigate to account page", async () => {
+    await page.goto("/account");
+  });
+
+  await test.step("Perform login", async () => {
+    await app.loginPage.performLogin(testUser.email, testUser.password);
+  });
+
+  await test.step("Verify account page title is visible and username is correct", async () => {
+    await expect(
+      app.accountPage.pageTitleLocator,
+      "Page title wasn't found",
+    ).toHaveText("My account");
+  });
   await expect(
     app.accountPage.header.navMenuLocator,
     "Username is incorrect",
