@@ -12,5 +12,3 @@ export enum FiltersByCategoryPowerTools {
   drill = "Drill",
   saw = "Saw",
 }
-
-export enum FiltersByCategoryOther {}

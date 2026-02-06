@@ -1,5 +1,5 @@
 import { APIRequestContext } from "@playwright/test";
-import { API_BASE } from "./config";
+import { API_BASE } from "../config/baseConfig";
 
 type LoginResponse = {
   access_token: string;

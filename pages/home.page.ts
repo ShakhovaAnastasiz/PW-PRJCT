@@ -2,7 +2,6 @@ import { Page, Locator } from "@playwright/test";
 import { Header } from "./header.fragment";
 import {
   FiltersByCategoryHandTools,
-  FiltersByCategoryOther,
   FiltersByCategoryPowerTools,
 } from "../testData/productNames";
 import { SortType } from "../testData/sortTypes";
@@ -17,7 +16,6 @@ export class HomePage {
   readonly allCategories = [
     ...Object.values(FiltersByCategoryPowerTools),
     ...Object.values(FiltersByCategoryHandTools),
-    ...Object.values(FiltersByCategoryOther),
   ];
 
   constructor(page: Page) {
@@ -47,25 +45,24 @@ export class HomePage {
     await productCard.click();
   }
 
-  async getAllVisibleTitles(): Promise<string[]> {
-    return await this.itemTitleLocator.allInnerTexts();
-  }
-
-  async getPricesAfterSorting(
+  async sortByPrice(
     sortType: SortType.priceLowHigh | SortType.priceHighLow,
-  ): Promise<number[]> {
+  ): Promise<void> {
     await this.sortSelectLocator.selectOption({ label: sortType });
-
+  }
+  async getItemPrices(): Promise<number[]> {
     const priceStrings = await this.itemPriceLocator.allInnerTexts();
+
     return priceStrings.map((p) => parseFloat(p.replace("$", "")));
   }
 
-  async getTitlesAfterSorting(
-    sortType: SortType.nameAZ | SortType.nameZA,
-  ): Promise<string[]> {
+  async sortByName(sortType: SortType.nameAZ | SortType.nameZA): Promise<void> {
     await this.sortSelectLocator.selectOption({ label: sortType });
-    return this.getAllVisibleTitles();
   }
+  async getItemTitles(): Promise<string[]> {
+    return await this.itemTitleLocator.allInnerTexts();
+  }
+
 
   getCategoryFilterLocator(category: string): Locator {
     return this.page.locator(

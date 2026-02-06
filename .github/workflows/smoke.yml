@@ -1,7 +1,7 @@
-name: Playwright Tests
+name: Playwright Tests @smoke
 on:
   push:
-    branches: [main, master, week-15]
+    branches: [main, master]
   pull_request:
     branches: [main, master]
 jobs:
@@ -27,7 +27,7 @@ jobs:
       - name: Ensure .auth folder exists
         run: mkdir -p playwright/.auth
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test --project=smoke
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

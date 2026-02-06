@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import { WEB_BASE } from "./config/baseConfig";
 
 /**
  * Read environment variables from file.
@@ -13,6 +14,11 @@ import { defineConfig, devices } from "@playwright/test";
  */
 export default defineConfig({
   testDir: "./tests",
+  timeout: 120_000,
+  expect: {
+    timeout: 10_000,
+  },
+
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,14 +28,32 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: [
+    ["html"],
+    ["dot"],
+    ["json", { outputFile: "/playwright-report/json-test-results.json" }],
+    [
+      "@testomatio/reporter/playwright",
+      {
+        upload: true,
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: "https://practicesoftwaretesting.com",
+    baseURL: WEB_BASE,
     testIdAttribute: "data-test",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    // trace:'on',
+    // Capture screenshot after each test failure.
+    screenshot: "only-on-failure",
+
+    // Record trace only when retrying a test for the first time.
     trace: "on-first-retry",
+
+    // Record video only when retrying a test for the first time.
+    video: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
@@ -40,19 +64,32 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
       },
-      dependencies: ["auth"],
     },
 
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
-      dependencies: ["auth"],
     },
 
     {
       name: "webkit",
       use: { ...devices["Desktop Safari"] },
-      dependencies: ["auth"],
+    },
+    {
+      name: "smoke",
+      testMatch: /.*\.spec\.ts/,
+      grep: /@smoke/,
+      use: {
+        ...devices["Desktop Chrome"],
+      },
+    },
+    {
+      name: "regression",
+      testMatch: /.*\.spec\.ts/,
+      grep: /@regression/,
+      use: {
+        ...devices["Desktop Chrome"],
+      },
     },
 
     /* Test against mobile viewports. */

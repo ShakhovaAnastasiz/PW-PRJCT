@@ -1,0 +1,2827 @@
+{
+  "config": {
+    "configFile": "/Users/shakhova/Desktop/js/PW-PRJCT/playwright.config.ts",
+    "rootDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "dot",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "json-test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "auth",
+        "name": "auth",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/auth\\.login\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "regression",
+        "name": "regression",
+        "testDir": "/Users/shakhova/Desktop/js/PW-PRJCT/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.spec\\.ts/"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.login.spec.ts",
+      "file": "auth.login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Login",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "auth",
+              "projectName": "auth",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 120061,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/pages/login.page.ts",
+                        "column": 27,
+                        "line": 16
+                      },
+                      "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#email')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../pages/login.page.ts:16\n\n\u001b[0m \u001b[90m 14 |\u001b[39m   }\n \u001b[90m 15 |\u001b[39m   \u001b[36masync\u001b[39m performLogin(email\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m password\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m \u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39memailInput\u001b[33m.\u001b[39mfill(email)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(password)\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m   }\u001b[0m\n\u001b[2m    at LoginPage.performLogin (/Users/shakhova/Desktop/js/PW-PRJCT/pages/login.page.ts:16:27)\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:17:25\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:16:14\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to account page",
+                      "duration": 4102
+                    },
+                    {
+                      "title": "Perform login",
+                      "duration": 115764,
+                      "error": {
+                        "message": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#email')\u001b[22m\n",
+                        "stack": "Error: locator.fill: Test timeout of 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#email')\u001b[22m\n\n    at LoginPage.performLogin (/Users/shakhova/Desktop/js/PW-PRJCT/pages/login.page.ts:16:27)\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:17:25\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:16:14",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/pages/login.page.ts",
+                          "column": 27,
+                          "line": 16
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m../pages/login.page.ts:16\n\n\u001b[0m \u001b[90m 14 |\u001b[39m   }\n \u001b[90m 15 |\u001b[39m   \u001b[36masync\u001b[39m performLogin(email\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m password\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m \u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39memailInput\u001b[33m.\u001b[39mfill(email)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpasswordInput\u001b[33m.\u001b[39mfill(password)\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloginButton\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 19 |\u001b[39m   }\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:09.659Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-auth/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-auth/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "73ed631a3fd68c21e74f-7012cd86e9994be675a7",
+          "file": "auth.login.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "Login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to account page",
+                      "duration": 3559
+                    },
+                    {
+                      "title": "Perform login",
+                      "duration": 1437
+                    },
+                    {
+                      "title": "Verify account page title is visible and username is correct",
+                      "duration": 865
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:09.656Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "73ed631a3fd68c21e74f-0813c5c29cdaa6ca1c7a",
+          "file": "auth.login.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "Login",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 12575,
+                  "error": {
+                    "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                    "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14",
+                    "location": {
+                      "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                      "column": 7,
+                      "line": 24
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                        "column": 7,
+                        "line": 24
+                      },
+                      "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n\n\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to account page",
+                      "duration": 906
+                    },
+                    {
+                      "title": "Perform login",
+                      "duration": 1044
+                    },
+                    {
+                      "title": "Verify account page title is visible and username is correct",
+                      "duration": 10008,
+                      "error": {
+                        "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                        "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                          "column": 7,
+                          "line": 24
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:22.974Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-firefox/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-firefox/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                    "column": 7,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "73ed631a3fd68c21e74f-d79ca0c64105a925e6cd",
+          "file": "auth.login.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "Login",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 4,
+                  "status": "failed",
+                  "duration": 12774,
+                  "error": {
+                    "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\u001b[2m    - waiting for\" https://practicesoftwaretesting.com/account\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://practicesoftwaretesting.com/account\"\u001b[22m\n",
+                    "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\u001b[2m    - waiting for\" https://practicesoftwaretesting.com/account\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://practicesoftwaretesting.com/account\"\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14",
+                    "location": {
+                      "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                      "column": 7,
+                      "line": 24
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                        "column": 7,
+                        "line": 24
+                      },
+                      "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\u001b[2m    - waiting for\" https://practicesoftwaretesting.com/account\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://practicesoftwaretesting.com/account\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to account page",
+                      "duration": 1258
+                    },
+                    {
+                      "title": "Perform login",
+                      "duration": 937
+                    },
+                    {
+                      "title": "Verify account page title is visible and username is correct",
+                      "duration": 10009,
+                      "error": {
+                        "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\u001b[2m    - waiting for\" https://practicesoftwaretesting.com/account\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://practicesoftwaretesting.com/account\"\u001b[22m\n",
+                        "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\u001b[2m    - waiting for\" https://practicesoftwaretesting.com/account\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://practicesoftwaretesting.com/account\"\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:24:7\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts:20:14",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                          "column": 7,
+                          "line": 24
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 22 |\u001b[39m       app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 23 |\u001b[39m       \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(\n \u001b[90m 27 |\u001b[39m     app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mheader\u001b[33m.\u001b[39mnavMenuLocator\u001b[33m,\u001b[39m\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:38.061Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-webkit/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/auth.login-Login-webkit/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/auth.login.spec.ts",
+                    "column": 7,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "73ed631a3fd68c21e74f-5dc0f655576c936c13b5",
+          "file": "auth.login.spec.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests.spec.ts",
+      "file": "tests.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify unauthorized user can view product details",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5947,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product",
+                      "duration": 4848
+                    },
+                    {
+                      "title": "Verify URL is product page",
+                      "duration": 4
+                    },
+                    {
+                      "title": "Verify product details and UI elements",
+                      "duration": 865
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:09.654Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-7077ea741d5159cb82ac",
+          "file": "tests.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "Verify user can add product to cart",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 14152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product card",
+                      "duration": 4400
+                    },
+                    {
+                      "title": "Verify product title and price",
+                      "duration": 860
+                    },
+                    {
+                      "title": "Add product to cart",
+                      "duration": 34
+                    },
+                    {
+                      "title": "Verify alert text and visibility/timeouts",
+                      "duration": 7729
+                    },
+                    {
+                      "title": "Verify cart quantity in header",
+                      "duration": 3
+                    },
+                    {
+                      "title": "Open cart and verify cart contents",
+                      "duration": 886
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:09.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-729b07b6eb883c5ad354",
+          "file": "tests.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "Verify user can filter products by category",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3078,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home page",
+                      "duration": 856
+                    },
+                    {
+                      "title": "Select a random category filter and wait for results",
+                      "duration": 2145
+                    },
+                    {
+                      "title": "Verify filtered products belong to the selected category",
+                      "duration": 15
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:18.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-db28df57792be7049672",
+          "file": "tests.spec.ts",
+          "line": 225,
+          "column": 5
+        },
+        {
+          "title": "Verify user can complete checkout with credit card",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open first product",
+                      "duration": 1899
+                    },
+                    {
+                      "title": "Capture product title and price",
+                      "duration": 785
+                    },
+                    {
+                      "title": "Add product to cart and open cart",
+                      "duration": 2617
+                    },
+                    {
+                      "title": "Verify cart contents and total",
+                      "duration": 18
+                    },
+                    {
+                      "title": "Proceed to checkout steps 1 and 2",
+                      "duration": 43
+                    },
+                    {
+                      "title": "Fill billing address and continue",
+                      "duration": 56
+                    },
+                    {
+                      "title": "Select credit card and fill payment details",
+                      "duration": 58
+                    },
+                    {
+                      "title": "Verify payment success message is visible",
+                      "duration": 865
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:19.300Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-ab7dbf1379b5f55c73a4",
+          "file": "tests.spec.ts",
+          "line": 255,
+          "column": 5
+        },
+        {
+          "title": "Verify 20 products are displayed per page by default",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Mocking 20 products",
+                      "duration": 1
+                    },
+                    {
+                      "title": "Navigating to home page",
+                      "duration": 925
+                    },
+                    {
+                      "title": "Verifying 20 products are displayed",
+                      "duration": 30
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:21.582Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-2ea32ce60ede63319a20",
+          "file": "tests.spec.ts",
+          "line": 348,
+          "column": 5
+        },
+        {
+          "title": "Verify unauthorized user can view product details",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product",
+                      "duration": 1929
+                    },
+                    {
+                      "title": "Verify URL is product page",
+                      "duration": 5
+                    },
+                    {
+                      "title": "Verify product details and UI elements",
+                      "duration": 870
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:24.672Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-cbfea348ca2328179e00",
+          "file": "tests.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "Verify user can add product to cart",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product card",
+                      "duration": 1926
+                    },
+                    {
+                      "title": "Verify product title and price",
+                      "duration": 867
+                    },
+                    {
+                      "title": "Add product to cart",
+                      "duration": 30
+                    },
+                    {
+                      "title": "Verify alert text and visibility/timeouts",
+                      "duration": 6752
+                    },
+                    {
+                      "title": "Verify cart quantity in header",
+                      "duration": 7
+                    },
+                    {
+                      "title": "Open cart and verify cart contents",
+                      "duration": 1492
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:26.545Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-ccf3f01a22550a125147",
+          "file": "tests.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "Verify user can filter products by category",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3235,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home page",
+                      "duration": 1466
+                    },
+                    {
+                      "title": "Select a random category filter and wait for results",
+                      "duration": 1626
+                    },
+                    {
+                      "title": "Verify filtered products belong to the selected category",
+                      "duration": 14
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:33.197Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-4998a1fd955fb5d52325",
+          "file": "tests.spec.ts",
+          "line": 225,
+          "column": 5
+        },
+        {
+          "title": "Verify user can complete checkout with credit card",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7232,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open first product",
+                      "duration": 2076
+                    },
+                    {
+                      "title": "Capture product title and price",
+                      "duration": 804
+                    },
+                    {
+                      "title": "Add product to cart and open cart",
+                      "duration": 2653
+                    },
+                    {
+                      "title": "Verify cart contents and total",
+                      "duration": 15
+                    },
+                    {
+                      "title": "Proceed to checkout steps 1 and 2",
+                      "duration": 55
+                    },
+                    {
+                      "title": "Fill billing address and continue",
+                      "duration": 54
+                    },
+                    {
+                      "title": "Select credit card and fill payment details",
+                      "duration": 67
+                    },
+                    {
+                      "title": "Verify payment success message is visible",
+                      "duration": 866
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:36.436Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-745be8fc1bad23c0bf64",
+          "file": "tests.spec.ts",
+          "line": 255,
+          "column": 5
+        },
+        {
+          "title": "Verify 20 products are displayed per page by default",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1753,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Mocking 20 products",
+                      "duration": 7
+                    },
+                    {
+                      "title": "Navigating to home page",
+                      "duration": 1141
+                    },
+                    {
+                      "title": "Verifying 20 products are displayed",
+                      "duration": 40
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:36.950Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-c7a6cb0b7890409b4ee4",
+          "file": "tests.spec.ts",
+          "line": 348,
+          "column": 5
+        },
+        {
+          "title": "Verify unauthorized user can view product details",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product",
+                      "duration": 1852
+                    },
+                    {
+                      "title": "Verify URL is product page",
+                      "duration": 7
+                    },
+                    {
+                      "title": "Verify product details and UI elements",
+                      "duration": 864
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:40.157Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-40902b40be9d779263da",
+          "file": "tests.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "Verify user can add product to cart",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 11672,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product card",
+                      "duration": 2570
+                    },
+                    {
+                      "title": "Verify product title and price",
+                      "duration": 858
+                    },
+                    {
+                      "title": "Add product to cart",
+                      "duration": 29
+                    },
+                    {
+                      "title": "Verify alert text and visibility/timeouts",
+                      "duration": 6733
+                    },
+                    {
+                      "title": "Verify cart quantity in header",
+                      "duration": 2
+                    },
+                    {
+                      "title": "Open cart and verify cart contents",
+                      "duration": 1335
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:43.259Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-cb50d99bd3b5ee8b8a18",
+          "file": "tests.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "Verify user can filter products by category",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2749,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home page",
+                      "duration": 1001
+                    },
+                    {
+                      "title": "Select a random category filter and wait for results",
+                      "duration": 1610
+                    },
+                    {
+                      "title": "Verify filtered products belong to the selected category",
+                      "duration": 14
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:49.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-79ffbd048f5c05ba9701",
+          "file": "tests.spec.ts",
+          "line": 225,
+          "column": 5
+        },
+        {
+          "title": "Verify user can complete checkout with credit card",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8172,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open first product",
+                      "duration": 2388
+                    },
+                    {
+                      "title": "Capture product title and price",
+                      "duration": 785
+                    },
+                    {
+                      "title": "Add product to cart and open cart",
+                      "duration": 3137
+                    },
+                    {
+                      "title": "Verify cart contents and total",
+                      "duration": 24
+                    },
+                    {
+                      "title": "Proceed to checkout steps 1 and 2",
+                      "duration": 70
+                    },
+                    {
+                      "title": "Fill billing address and continue",
+                      "duration": 84
+                    },
+                    {
+                      "title": "Select credit card and fill payment details",
+                      "duration": 83
+                    },
+                    {
+                      "title": "Verify payment success message is visible",
+                      "duration": 860
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:51.068Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-9efb6d05739ecc04d16e",
+          "file": "tests.spec.ts",
+          "line": 255,
+          "column": 5
+        },
+        {
+          "title": "Verify 20 products are displayed per page by default",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Mocking 20 products",
+                      "duration": 2
+                    },
+                    {
+                      "title": "Navigating to home page",
+                      "duration": 1488
+                    },
+                    {
+                      "title": "Verifying 20 products are displayed",
+                      "duration": 18
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:51.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-0ecb742dce293b0748f6",
+          "file": "tests.spec.ts",
+          "line": 348,
+          "column": 5
+        },
+        {
+          "title": "Verify user can add product to cart",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 10405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product card",
+                      "duration": 1869
+                    },
+                    {
+                      "title": "Verify product title and price",
+                      "duration": 862
+                    },
+                    {
+                      "title": "Add product to cart",
+                      "duration": 18
+                    },
+                    {
+                      "title": "Verify alert text and visibility/timeouts",
+                      "duration": 6736
+                    },
+                    {
+                      "title": "Verify cart quantity in header",
+                      "duration": 3
+                    },
+                    {
+                      "title": "Open cart and verify cart contents",
+                      "duration": 823
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:52.515Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-1101ed34739522b8427a",
+          "file": "tests.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "Verify user can filter products by category",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 2748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home page",
+                      "duration": 985
+                    },
+                    {
+                      "title": "Select a random category filter and wait for results",
+                      "duration": 1669
+                    },
+                    {
+                      "title": "Verify filtered products belong to the selected category",
+                      "duration": 13
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:53.846Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-ae9a66b76d22c71f9d25",
+          "file": "tests.spec.ts",
+          "line": 225,
+          "column": 5
+        },
+        {
+          "title": "Verify unauthorized user can view product details",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression",
+              "projectName": "regression",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1749,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product",
+                      "duration": 1273
+                    },
+                    {
+                      "title": "Verify URL is product page",
+                      "duration": 3
+                    },
+                    {
+                      "title": "Verify product details and UI elements",
+                      "duration": 366
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:55.294Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-6d05e77fd683a8b9dfdf",
+          "file": "tests.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "Verify user can add product to cart",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression",
+              "projectName": "regression",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 12070,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open product card",
+                      "duration": 2025
+                    },
+                    {
+                      "title": "Verify product title and price",
+                      "duration": 868
+                    },
+                    {
+                      "title": "Add product to cart",
+                      "duration": 15
+                    },
+                    {
+                      "title": "Verify alert text and visibility/timeouts",
+                      "duration": 7729
+                    },
+                    {
+                      "title": "Verify cart quantity in header",
+                      "duration": 1
+                    },
+                    {
+                      "title": "Open cart and verify cart contents",
+                      "duration": 1333
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:54:57.141Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-9081600f5d5e35ccc666",
+          "file": "tests.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "Verify user can filter products by category",
+          "ok": true,
+          "tags": [
+            "regression",
+            "smoke"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression",
+              "projectName": "regression",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2806,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home page",
+                      "duration": 1130
+                    },
+                    {
+                      "title": "Select a random category filter and wait for results",
+                      "duration": 1603
+                    },
+                    {
+                      "title": "Verify filtered products belong to the selected category",
+                      "duration": 9
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:55:00.276Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-1ad05c1a2afc99e111b0",
+          "file": "tests.spec.ts",
+          "line": 225,
+          "column": 5
+        },
+        {
+          "title": "Verify user can complete checkout with credit card",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression",
+              "projectName": "regression",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7556,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to home and open first product",
+                      "duration": 2040
+                    },
+                    {
+                      "title": "Capture product title and price",
+                      "duration": 1280
+                    },
+                    {
+                      "title": "Add product to cart and open cart",
+                      "duration": 2600
+                    },
+                    {
+                      "title": "Verify cart contents and total",
+                      "duration": 8
+                    },
+                    {
+                      "title": "Proceed to checkout steps 1 and 2",
+                      "duration": 38
+                    },
+                    {
+                      "title": "Fill billing address and continue",
+                      "duration": 31
+                    },
+                    {
+                      "title": "Select credit card and fill payment details",
+                      "duration": 32
+                    },
+                    {
+                      "title": "Verify payment success message is visible",
+                      "duration": 857
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:55:00.904Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-9d78b55e6879b4299e60",
+          "file": "tests.spec.ts",
+          "line": 255,
+          "column": 5
+        },
+        {
+          "title": "Verify 20 products are displayed per page by default",
+          "ok": true,
+          "tags": [
+            "regression"
+          ],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression",
+              "projectName": "regression",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Mocking 20 products",
+                      "duration": 2
+                    },
+                    {
+                      "title": "Navigating to home page",
+                      "duration": 960
+                    },
+                    {
+                      "title": "Verifying 20 products are displayed",
+                      "duration": 16
+                    }
+                  ],
+                  "startTime": "2026-02-04T15:55:03.086Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "292e21d96a3a4afcf952-bf7fe4f0ff4c9ed6f622",
+          "file": "tests.spec.ts",
+          "line": 348,
+          "column": 5
+        }
+      ],
+      "suites": [
+        {
+          "title": "Authenticated user tests",
+          "file": "tests.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Login",
+              "ok": false,
+              "tags": [
+                "manual"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 14133,
+                      "error": {
+                        "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                        "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                          "column": 9,
+                          "line": 26
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                            "column": 9,
+                            "line": 26
+                          },
+                          "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n\n\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to account page",
+                          "duration": 3799
+                        },
+                        {
+                          "title": "Verify account page title is visible",
+                          "duration": 10007,
+                          "error": {
+                            "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                            "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                            "location": {
+                              "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                              "column": 9,
+                              "line": 26
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:09.662Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                        "column": 9,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-7c014cd22cace98342ef",
+              "file": "tests.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "Login",
+              "ok": false,
+              "tags": [
+                "manual"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 11666,
+                      "error": {
+                        "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                        "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                          "column": 9,
+                          "line": 26
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                            "column": 9,
+                            "line": 26
+                          },
+                          "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n\n\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to account page",
+                          "duration": 655
+                        },
+                        {
+                          "title": "Verify account page title is visible",
+                          "duration": 10012,
+                          "error": {
+                            "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                            "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                            "location": {
+                              "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                              "column": 9,
+                              "line": 26
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:24.675Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                        "column": 9,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-361271f060a4b5a12188",
+              "file": "tests.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "Login",
+              "ok": false,
+              "tags": [
+                "manual"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 11344,
+                      "error": {
+                        "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                        "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                        "location": {
+                          "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                          "column": 9,
+                          "line": 26
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                            "column": 9,
+                            "line": 26
+                          },
+                          "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n\n\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\u001b[22m\n\u001b[2m    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to account page",
+                          "duration": 881
+                        },
+                        {
+                          "title": "Verify account page title is visible",
+                          "duration": 10006,
+                          "error": {
+                            "message": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n",
+                            "stack": "Error: Page title wasn't found\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('page-title')\nExpected: \u001b[32m\"My account\"\u001b[39m\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Page title wasn't found with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('page-title')\u001b[22m\n\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:26:9\n    at /Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts:22:16",
+                            "location": {
+                              "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                              "column": 9,
+                              "line": 26
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 24 |\u001b[39m         app\u001b[33m.\u001b[39maccountPage\u001b[33m.\u001b[39mpageTitleLocator\u001b[33m,\u001b[39m\n \u001b[90m 25 |\u001b[39m         \u001b[32m\"Page title wasn't found\"\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 |\u001b[39m       )\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"My account\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 27 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Verify username in header navigation\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:39.325Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/shakhova/Desktop/js/PW-PRJCT/test-results/tests-Authenticated-user-tests-Login-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/shakhova/Desktop/js/PW-PRJCT/tests/tests.spec.ts",
+                        "column": 9,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-51398c6091d9db9ad1fb",
+              "file": "tests.spec.ts",
+              "line": 17,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Sorting",
+          "file": "tests.spec.ts",
+          "line": 152,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verify user can perform sorting by price: Price (High - Low)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1190,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1041
+                        },
+                        {
+                          "title": "Sort items by price: Price (High - Low)",
+                          "duration": 29
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 9
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:16.085Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-cf9119d54cc049225357",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (Low - High)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1217,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1069
+                        },
+                        {
+                          "title": "Sort items by price: Price (Low - High)",
+                          "duration": 19
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 11
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:17.100Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-5ff3d91331bac02b1921",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (A - Z)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1211,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1085
+                        },
+                        {
+                          "title": "Sort items by name: Name (A - Z)",
+                          "duration": 13
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 8
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:17.285Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-30af29a55e3744a92006",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (Z - A)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 969,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 822
+                        },
+                        {
+                          "title": "Sort items by name: Name (Z - A)",
+                          "duration": 34
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 11
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:18.324Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-d2e01f87d41571531699",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (High - Low)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1171,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 960
+                        },
+                        {
+                          "title": "Sort items by price: Price (High - Low)",
+                          "duration": 18
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 19
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:28.750Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-e69b1e7ef2ed8304524a",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (Low - High)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1139,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 940
+                        },
+                        {
+                          "title": "Sort items by price: Price (Low - High)",
+                          "duration": 34
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 13
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:29.927Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-d2241becf1fd64ab04d4",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (A - Z)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1038,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 841
+                        },
+                        {
+                          "title": "Sort items by name: Name (A - Z)",
+                          "duration": 34
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 13
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:31.072Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-673bd8bfc64b8af85ebf",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (Z - A)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1075,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 877
+                        },
+                        {
+                          "title": "Sort items by name: Name (Z - A)",
+                          "duration": 35
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 12
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:32.116Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-3f31a6473848b6a83889",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (High - Low)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1019
+                        },
+                        {
+                          "title": "Sort items by price: Price (High - Low)",
+                          "duration": 49
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 14
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:44.219Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-242b5745760d5e107bf2",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (Low - High)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1332,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1135
+                        },
+                        {
+                          "title": "Sort items by price: Price (Low - High)",
+                          "duration": 27
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 12
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:45.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-00b89dc4c20808bcffbc",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (A - Z)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1423,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 1152
+                        },
+                        {
+                          "title": "Sort items by name: Name (A - Z)",
+                          "duration": 103
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 12
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:47.057Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-27bb398456ca272fc822",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (Z - A)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1018,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 780
+                        },
+                        {
+                          "title": "Sort items by name: Name (Z - A)",
+                          "duration": 50
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 13
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:48.487Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-3df16d7c0e8ad09dfcad",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (High - Low)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1079,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 926
+                        },
+                        {
+                          "title": "Sort items by price: Price (High - Low)",
+                          "duration": 13
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 14
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:57.168Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-ec536c548ac56ac18034",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by price: Price (Low - High)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1090,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 921
+                        },
+                        {
+                          "title": "Sort items by price: Price (Low - High)",
+                          "duration": 14
+                        },
+                        {
+                          "title": "Verify prices are sorted correctly",
+                          "duration": 26
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:58.252Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-f8a0f8a629bb4ba51989",
+              "file": "tests.spec.ts",
+              "line": 159,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (A - Z)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 923,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 760
+                        },
+                        {
+                          "title": "Sort items by name: Name (A - Z)",
+                          "duration": 34
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 9
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:59.349Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-91b3bd6aa2dacaeab07e",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            },
+            {
+              "title": "Verify user can perform sorting by name: Name (Z - A)",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression",
+                  "projectName": "regression",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1051,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Navigate to home page",
+                          "duration": 817
+                        },
+                        {
+                          "title": "Sort items by name: Name (Z - A)",
+                          "duration": 105
+                        },
+                        {
+                          "title": "Verify names are sorted correctly",
+                          "duration": 10
+                        }
+                      ],
+                      "startTime": "2026-02-04T15:54:59.743Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "292e21d96a3a4afcf952-557195db68094c2b0c08",
+              "file": "tests.spec.ts",
+              "line": 192,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-02-04T15:54:09.273Z",
+    "duration": 120949.187,
+    "expected": 39,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}
